@@ -1399,6 +1399,8 @@ footer {
     font-size: 3rem
 }
 
+
+
 .social-media-container {
     display: flex;
     flex-direction: column;
@@ -1448,8 +1450,16 @@ footer {
 }
 
 .SocialHandle {
-    fill: white;
-    width: 60%
+    width: 30px; /* Adjust based on your design */
+  height: 30px;
+  fill: white; /* Matches your screenshot */
+  transition: fill 0.3s ease;
+}
+.SocialHandle:hover {
+  fill: #3182ce; /* Codeforces blue or your brand color */
+}
+.SocialHandle[aria-label="My LeetCode"]:hover {
+  fill: #FFA116; /* LeetCode Orange */
 }
 
 #GmailLogo {
