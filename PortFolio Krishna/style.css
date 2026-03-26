@@ -2031,3 +2031,99 @@ footer {
         margin-top: 100px;  
     }
 }
+
+:root {
+  --accent-color: #c084fc; /* The purple from your image */
+  --glow-color: rgba(192, 132, 252, 0.6);
+}
+
+.footer-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh; 
+  /* CHANGE: background set to transparent to show your site's gradient */
+  background: transparent; 
+  overflow: visible; /* Changed to visible so glow doesn't get cut off */
+  position: relative;
+  width: 100%;
+}
+
+.massive-text {
+  position: relative;
+  font-size: 8rem; 
+  font-family: 'Consolas', monospace;
+  color: transparent; 
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  cursor: pointer;
+  margin: 0;
+  display: inline-block; /* Changed from width:100% to wrap the text tightly */
+  line-height: 1;
+}
+
+/* Ensure the spans take the full width of the container */
+.massive-text span:nth-child(1),
+.massive-text span:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  color: #c084fc; 
+  transition: 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+  text-shadow: 0 0 20px rgba(192, 132, 252, 0.6);
+  pointer-events: none; /* Let the mouse hover hit the parent H2 */
+}
+
+/* Top Half */
+.massive-text span:nth-child(1) {
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+
+.massive-text:hover span:nth-child(1) {
+  transform: translateY(-35px); /* Adjusted to match font size */
+}
+
+/* Bottom Half */
+.massive-text span:nth-child(2) {
+  clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+}
+
+.massive-text:hover span:nth-child(2) {
+  transform: translateY(35px); /* Adjusted to match font size */
+}
+/* The Middle Hidden Text */
+.massive-text .reveal-text {
+  position: absolute;
+  top: 50%;
+  left: 0; /* Align to the start of the text */
+  width: 100%; /* Match the text width exactly */
+  transform: translateY(-50%) scaleY(0);
+  background: #fff;
+  color: #000;
+  font-size: 1.2rem; 
+  font-weight: 900;
+  letter-spacing: 0.5rem; /* Reduced slightly for better fit */
+  text-align: center;
+  transition: 0.5s;
+  opacity: 0;
+  padding: 5px 0;
+  z-index: 3;
+  white-space: nowrap; /* Keeps text on one line */
+}
+.massive-text:hover .reveal-text {
+  transform: translateY(-50%) scaleY(1);
+  opacity: 1;
+}
+
+/* Mobile Responsive adjustment */
+@media (max-width: 768px) {
+  .massive-text {
+    font-size: 4rem;
+  }
+  .massive-text .reveal-text {
+    letter-spacing: 0.3rem;
+    font-size: 0.8rem;
+  }
+}
