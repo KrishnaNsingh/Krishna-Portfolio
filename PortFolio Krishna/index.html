@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#000" />
-  <meta name="description" content="Krishna Narayan Singh - Full-Stack Developer & Machine Learning Engineer building scalable digital products and intelligent systems." />
   <title>Krishna Narayan Singh | Portfolio</title>
   <link rel="icon" type="image/x-icon" href="src/png/main-favicon.png" />
   <!-- aos cdn -->
@@ -17,7 +16,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" />
 </head>
 <body class="body">
-  <audio loop="" id="audioPlayer" style="display: none">
+  <audio loop="" id="audioPlayer" preload="none" style="display: none">
     <source src="src/mp3/preloader.mp3" type="audio/mp3" />
   </audio>
   <div id="preloader"></div>
@@ -250,7 +249,7 @@
               My approach is simple: write clean code, design thoughtful systems, and build products that are scalable, maintainable, and meaningful.
             </p>
              <!-- Resume button -->
-      <button class="resume-btn" id="resume-btn" onclick="openURL()">
+      <a href="src/pdf/Krishna Resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-btn" id="resume-btn" aria-label="View Krishna's Resume">
         <div class="sign">
           <svg viewBox="0 0 640 512">
             <path
@@ -258,10 +257,10 @@
           </svg>
         </div>
         <div class="text">Resume</div>
-      </button>
+      </a>
           </div>
           <div class="dp" data-aos="fade-up">
-            <img src="src/webp/krishna-image.png" alt="krishna-image" tabindex="0" aria-label="image of krishna" />
+            <img src="src/webp/krishna-image.webp" alt="Krishna Narayan Singh portrait" tabindex="0" aria-label="Image of Krishna Narayan Singh" />
           </div>
         </div>
       </div>
@@ -405,7 +404,7 @@
                 </div>
               </div>
               <div class="image-div">
-                <img src="src/webp/postureCoachPoV.png" alt="PostureCoach project preview" />
+                <img src="src/webp/postureCoachPoV.webp" alt="PostureCoach project preview" />
               </div>
             </div>
           </div>
@@ -434,7 +433,7 @@
                 </div>
               </div>
               <div class="image-div">
-                <img src="src/webp/ParkritiPure.png" alt="Prakriti Pure project preview" />
+                <img src="src/webp/ParkritiPure.webp" alt="Prakriti Pure project preview" />
               </div>
             </div>
           </div>
@@ -463,7 +462,7 @@
                 </div>
               </div>
               <div class="image-div">
-                <img src="src/webp/Ethanol Purity predictor.png" alt="Ethanol Purity Predictor project preview" />
+                <img src="src/webp/Ethanol Purity predictor.webp" alt="Ethanol Purity Predictor project preview" />
               </div>
             </div>
           </div>
@@ -492,7 +491,7 @@
                 </div>
               </div>
               <div class="image-div">
-                <img src="src/webp/ironman.png" alt="Stark Industries project preview" />
+                <img src="src/webp/ironman.webp" alt="Stark Industries project preview" />
               </div>
             </div>
           </div>
@@ -521,7 +520,7 @@
                 </div>
               </div>
               <div class="image-div">
-                <img src="src/webp/web_dashboard.png" alt="Chemical Equipment Parameter Visualizer project preview" />
+                <img src="src/webp/web_dashboard.webp" alt="Chemical Equipment Parameter Visualizer project preview" />
               </div>
             </div>
           </div>
@@ -550,7 +549,7 @@
                 </div>
               </div>
               <div class="image-div">
-                <img src="src/webp/RagBot.png" alt="PDF RAG Bot project preview" />
+                <img src="src/webp/RagBot.webp" alt="PDF RAG Bot project preview" />
               </div>
             </div>
           </div>
@@ -633,47 +632,41 @@
   </script>
 
   <script>
-    function openURL() {
-      var url = "src/pdf/Krishna Resume.pdf";
+    // Cursor hover effects (only on fine pointer devices)
+    if (window.matchMedia("(pointer: fine)").matches) {
+      const cursorInner = document.getElementById("cursor-inner");
+      const cursorOuter = document.getElementById("cursor-outer");
+      const interactiveElements = document.querySelectorAll("a, label, button");
 
-      window.open(url, "_blank");
-    }
-  </script>
+      document.addEventListener("mousemove", (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
 
-  <script>
-    const cursorInner = document.getElementById("cursor-inner");
-    const cursorOuter = document.getElementById("cursor-outer");
-    const links = document.querySelectorAll("a,label,button");
+        cursorInner.style.left = `${posX}px`;
+        cursorInner.style.top = `${posY}px`;
 
-    document.addEventListener("mousemove", function (e) {
-      const posX = e.clientX;
-      const posY = e.clientY;
+        cursorOuter.animate(
+          { left: `${posX}px`, top: `${posY}px` },
+          { duration: 450, fill: "forwards" }
+        );
+      });
 
-      cursorInner.style.left = `${posX}px`;
-      cursorInner.style.top = `${posY}px`;
-
-      // cursorOuter.style.left = `${posX}px`;
-      // cursorOuter.style.top = `${posY}px`;
-
-      cursorOuter.animate(
-        {
-          left: `${posX}px`,
-          top: `${posY}px`,
-        },
-        { duration: 500, fill: "forwards" }
-      );
-
-      links.forEach((link) => {
-        link.addEventListener("mouseenter", () => {
+      interactiveElements.forEach((el) => {
+        el.addEventListener("mouseenter", () => {
           cursorInner.classList.add("hover");
           cursorOuter.classList.add("hover");
         });
-        link.addEventListener("mouseleave", () => {
+        el.addEventListener("mouseleave", () => {
           cursorInner.classList.remove("hover");
           cursorOuter.classList.remove("hover");
         });
       });
-    });
+    } else {
+      const cInner = document.getElementById("cursor-inner");
+      const cOuter = document.getElementById("cursor-outer");
+      if (cInner) cInner.style.display = "none";
+      if (cOuter) cOuter.style.display = "none";
+    }
   </script>
 </body>
 

@@ -50,7 +50,8 @@ footer {
 
 .cta,
 .github-redirect,
-.navbar-tabs-ul a {
+.navbar-tabs-ul a,
+.resume-btn {
     text-decoration: none
 }
 
@@ -63,19 +64,29 @@ footer {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    -webkit-tap-highlight-color: transparent
+}
+
+button,
+.navbar,
+.hamburger,
+.setting-container,
+.SocialHandle,
+#backtotopbutton {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    -webkit-tap-highlight-color: transparent
 }
 
 ::selection {
-    background-color: transparent
+    background-color: var(--color-purple);
+    color: #fff;
 }
 
 ::-moz-selection {
-    background: 0 0
+    background-color: var(--color-purple);
+    color: #fff;
 }
 
 html {
@@ -1488,74 +1499,6 @@ footer {
 .social-media-container a:hover::before {
     transform: scale(1);
     transition-duration: .3s
-}
-
-.footer-avatar-container {
-    width: 220px;
-    margin-top: 20px;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center
-}
-
-.footer-avatar-img {
-    width: 100%;
-    z-index: 2
-}
-
-.footer-avatar-face {
-    position: absolute;
-    width: 100%;
-    height: 97%;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
-    padding-left: 5px
-}
-
-.footer-avatar-eye {
-    width: 50px;
-    height: 50px;
-    background-color: #dfd2d2;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center
-}
-
-.footer-pupil {
-    width: 20px;
-    height: 20px;
-    background-color: #000;
-    border-radius: 50%;
-    border: 5px solid #413333;
-    filter: blur(.6px)
-}
-
-.footer-right-eye {
-    box-shadow: 15px 15px 5px rgba(0, 0, 0, .233) inset, 10px 10px 5px rgba(41, 33, 33, .644) inset;
-    position: relative
-}
-
-.footer-left-eye {
-    box-shadow: -10px -15px 5px rgba(0, 0, 0, .349) inset;
-    position: relative
-}
-
-.footer-avatar-eye::before {
-    position: absolute;
-    content: "";
-    width: 2px;
-    height: 5px;
-    border-radius: 50%;
-    background-color: rgba(214, 214, 214, .726);
-    z-index: 2;
-    filter: blur(.2px);
-    left: 15px;
-    transform: rotate(45deg)
 }
 
 .footer-bottom {
