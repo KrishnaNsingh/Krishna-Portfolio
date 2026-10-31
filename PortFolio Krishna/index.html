@@ -16,6 +16,13 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" />
 </head>
 <body class="body">
+  <div class="global-video-bg-container" aria-hidden="true">
+    <video class="global-video-bg" autoplay muted loop playsinline webkit-playsinline preload="auto">
+      <source src="mp4/hero-bg.mp4" type="video/mp4" />
+    </video>
+    <div class="global-video-overlay"></div>
+  </div>
+
   <audio loop="" id="audioPlayer" preload="none" style="display: none">
     <source src="src/mp3/preloader.mp3" type="audio/mp3" />
   </audio>

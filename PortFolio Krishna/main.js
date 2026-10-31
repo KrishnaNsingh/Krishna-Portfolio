@@ -1,6 +1,29 @@
 const audio = document.getElementById("audioPlayer");
 const loader = document.getElementById("preloader");
 const backToTopBtn = document.getElementById("backtotopbutton");
+const bgVideo = document.querySelector(".global-video-bg");
+
+// Global video background autoplay assurance (handles battery saver & mobile policies)
+if (bgVideo) {
+  bgVideo.muted = true;
+  const ensureVideoPlaying = () => {
+    const playPromise = bgVideo.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        const startOnInteraction = () => {
+          bgVideo.play();
+          window.removeEventListener("touchstart", startOnInteraction);
+          window.removeEventListener("click", startOnInteraction);
+          window.removeEventListener("scroll", startOnInteraction);
+        };
+        window.addEventListener("touchstart", startOnInteraction, { passive: true });
+        window.addEventListener("click", startOnInteraction, { passive: true });
+        window.addEventListener("scroll", startOnInteraction, { passive: true });
+      });
+    }
+  };
+  ensureVideoPlaying();
+}
 
 // Settings toggles (sound & appearance)
 function settingtoggle() {
