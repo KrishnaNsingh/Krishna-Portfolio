@@ -646,7 +646,8 @@ noscript {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+    position: relative;
 }
 
 .text-content {
@@ -655,7 +656,108 @@ noscript {
     width: 60%;
     height: 100%;
     align-items: flex-start;
-    justify-content: center
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+}
+
+/* ==========================================================================
+   Hero Section Interactive ASCII Globe (FIG 06)
+   ========================================================================== */
+.hero-globe-wrapper {
+    position: absolute;
+    right: clamp(16px, 4vw, 75px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(280px, 30vw, 420px);
+    height: clamp(280px, 30vw, 420px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    pointer-events: auto;
+    animation: heroGlobeFloat 6s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlobeFloat {
+    0% {
+        transform: translateY(-50%) translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translateY(-50%) translate3d(0, -12px, 0);
+    }
+}
+
+.hero-globe-plate {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    touch-action: none;
+    /* Soft cosmic aura matching portfolio theme */
+    background: radial-gradient(ellipse 65% 65% at 50% 50%, rgba(192, 132, 252, 0.08), rgba(107, 197, 248, 0.03) 40%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.hero-globe-plate:active {
+    cursor: grabbing;
+}
+
+.hero-globe-plate canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    transform: translateZ(0);
+    contain: strict;
+}
+
+.hero-globe-caption {
+    margin-top: 10px;
+    font-family: 'Fira Code', monospace;
+    font-size: 1.1rem;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.light-mode .hero-globe-caption {
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.light-mode .hero-globe-plate {
+    background: radial-gradient(ellipse 65% 65% at 50% 50%, rgba(128, 0, 255, 0.06), rgba(0, 0, 0, 0) 70%);
+}
+
+@media screen and (max-width: 1200px) and (min-width: 901px) {
+    .hero-globe-wrapper {
+        width: clamp(240px, 25vw, 320px);
+        height: clamp(240px, 25vw, 320px);
+        right: 2%;
+        opacity: 0.88;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .hero-globe-wrapper {
+        width: clamp(190px, 42vw, 250px);
+        height: clamp(190px, 42vw, 250px);
+        right: -15px;
+        top: 55%;
+        transform: translateY(-50%);
+        opacity: 0.35;
+        z-index: 1;
+        animation: none;
+    }
+    .hero-globe-caption {
+        display: none;
+    }
 }
 
 #hello-friend {
