@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f6d365" />
+      <stop offset="100%" stop-color="#d4af37" />
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="48" fill="#0f1118" stroke="url(#goldGrad)" stroke-width="2.5"/>
+  <circle cx="50" cy="50" r="43" fill="none" stroke="url(#goldGrad)" stroke-width="0.75" stroke-dasharray="3,2" opacity="0.6"/>
+  <path d="M50 18 C53 23, 58 25, 62 23 C58 29, 54 30, 50 34 C46 30, 42 29, 38 23 C42 25, 47 23, 50 18 Z" fill="url(#goldGrad)"/>
+  <text x="50" y="58" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-size="24" font-weight="700" fill="#fdfbf7" text-anchor="middle" letter-spacing="2">LL</text>
+  <text x="50" y="70" font-family="'Fira Code', monospace" font-size="6.5" font-weight="600" fill="#d4af37" text-anchor="middle" letter-spacing="3">ATELIER</text>
+  <circle cx="50" cy="80" r="2" fill="url(#goldGrad)"/>
+</svg>

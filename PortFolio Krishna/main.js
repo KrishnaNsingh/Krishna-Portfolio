@@ -121,6 +121,25 @@ function scrolltoTopfunction() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+// Project Mockup View Switcher (e.g. Catalog vs Hero)
+function switchMockupView(event, targetId, btn) {
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+  const windowEl = btn.closest(".mockup-window");
+  if (!windowEl) return;
+  windowEl.querySelectorAll(".mockup-tab").forEach((tab) => tab.classList.remove("active"));
+  btn.classList.add("active");
+  windowEl.querySelectorAll(".mockup-img").forEach((img) => {
+    if (img.id === targetId) {
+      img.style.display = "block";
+    } else {
+      img.style.display = "none";
+    }
+  });
+}
+
 console.log(
   "%c Designed and Developed by Krishna Narayan Singh ",
   "background-image: linear-gradient(90deg,#8000ff,#6bc5f8); color: white; font-weight:900; font-size:1rem; padding:12px; border-radius:6px;"
